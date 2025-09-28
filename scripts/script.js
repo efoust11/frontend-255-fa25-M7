@@ -1,5 +1,5 @@
 addEventListener("DOMContentLoaded", async function(){
-    const response = await fetch("http://localhost:3000/api/songs");
+    const response = await fetch("https://backend-255-fa25-m6.onrender.com/api/songs");
     const songs = await response.json();
 
     let html = "";
