@@ -4,7 +4,7 @@ addEventListener("DOMContentLoaded", async function(){
 })
 
 async function getAllSongs(){
-    const response = await fetch("http://localhost:3000/api/songs")
+    const response = await fetch("https://backend-255-fa25-m7.onrender.com/api/songs")
     if(response.ok){
         const songs = await response.json()
         let html = ""
@@ -17,7 +17,7 @@ async function getAllSongs(){
 
 async function deleteSong() {
     const songID = document.querySelector("#songDropDown option:checked").value;
-    const response = await fetch("http://localhost:3000/api/songs/"+ songID,{
+    const response = await fetch("https://backend-255-fa25-m7.onrender.com/api/songs/"+ songID,{
         method: "DELETE"
     });
     if(response.ok){
