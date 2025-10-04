@@ -1,10 +1,10 @@
 addEventListener("DOMContentLoaded", async function(){
-    docuement.querySelector("#deleteBtn").addEventListener("click", deleteSong)
+    document.querySelector("#deleteBtn").addEventListener("click", deleteSong)
     getAllSongs()
 })
 
 async function getAllSongs(){
-    const response = await fetch("https://localhost:3000/api/songs")
+    const response = await fetch("http://localhost:3000/api/songs")
     if(response.ok){
         const songs = await response.json()
         let html = ""
@@ -16,10 +16,10 @@ async function getAllSongs(){
 }
 
 async function deleteSong() {
-    const songsID = document.querySelector("songDropDown option:checked").value
-    const response = await fetch("https://localhost:3000/api/songs/"+songID,{
+    const songID = document.querySelector("#songDropDown option:checked").value;
+    const response = await fetch("http://localhost:3000/api/songs/"+ songID,{
         method: "DELETE"
-    })
+    });
     if(response.ok){
         getAllSongs()
         alert("Song Deleted")
